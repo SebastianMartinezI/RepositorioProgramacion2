@@ -10,11 +10,19 @@ public class Veterinario extends Persona {
 
     }
 
-    @Override
-    public String toString() {
-        return "Veterinario{" +
-                "licenciaProfesional=" + licenciaProfesional +
-                ", especialidad=" + especialidad +
-                '}';
+    public int getLicenciaProfesional() {
+        return licenciaProfesional;
+    }
+
+    public void setLicenciaProfesional(int licenciaProfesional) {
+        this.licenciaProfesional = licenciaProfesional;
+    }
+
+    public Especialidad getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(Especialidad especialidad) {
+        this.especialidad = especialidad;
     }
 }

@@ -1,26 +1,28 @@
 package co.edu.uniquindio.poo.veterinaria.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Veterinaria {
     private String nombre;
     private String direccion;
     private int telefono;
-    private List<Mascota> listMascotas;
-    private List<Propietario>listPropietarios;
-    private List<Veterinario>listVeterinarios;
-    private List<Consulta> listConsultas;
+    private Collection<Mascota> listMascotas;
+    private Collection<Propietario>listPropietarios;
+    private Collection<Veterinario> listVeterinarios;
+    private Collection<Consulta> listConsultas;
 
 
     public Veterinaria(String nombre, String direccion, int telefono) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.listMascotas = new ArrayList<>();
-        this.listPropietarios = new ArrayList<>();
-        this.listVeterinarios = new ArrayList<>();
-        this.listConsultas = new ArrayList<>();
+        listMascotas = new LinkedList<>();
+        listPropietarios = new LinkedList<>();
+        listVeterinarios = new LinkedList<>();
+        listConsultas = new LinkedList<>();
 
     }
 
@@ -31,13 +33,55 @@ public class Veterinaria {
         this.listMascotas.add(mascota);
     }
 
+    public Collection<Veterinario> getListVeterinarios() {
+        return listVeterinarios;
+    }
+    public  void setListVeterinarios(Collection<Veterinario> listVeterinarios) {
+        this.listVeterinarios = listVeterinarios;
+    }
+
+    public Collection<Consulta> getListConsultas() {
+        return listConsultas;
+    }
+    public void setListConsultas(Collection<Consulta> listConsultas) {
+        this.listConsultas = listConsultas;
+    }
+    public Collection<Propietario> getListPropietarios() {
+        return listPropietarios;
+    }
+    public void setListPropietarios(List<Propietario> listPropietarios) {
+        this.listPropietarios = listPropietarios;
+    }
+    public Collection<Mascota> getListMascotas() {
+        return listMascotas;
+    }
+    public void setListMascotas(List<Mascota> listMascotas) {
+        this.listMascotas = listMascotas;
+    }
+
     public void agregarPropietario(Propietario propietario) {
         listPropietarios.add(propietario);
     }
 
-    public void agregarVeterinario(Veterinario veterinario) {
-        listVeterinarios.add(veterinario);
+    public boolean agregarVeterinario(Veterinario veterinario) {
+        boolean centinela = false;
+        if (!verificarVeterinario(veterinario.getIdentificacion())) {
+            veterinario.add(veterinario);
+            centinela = true;
+        }
+        return centinela;
     }
+    public boolean verificarVeterinario(int identificacion) {
+        boolean centinela = false;
+        for (Veterinario veterinario : listVeterinarios) {
+            if (veterinario.getIdentificacion() == identificacion) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
+
 
     public void agregarConsulta(Consulta consulta) {
         listConsultas.add(consulta);
