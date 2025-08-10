@@ -17,15 +17,15 @@ public class VeterinarioController {
     }
 
     public Collection<Veterinario> obtenerListaVeterinarios() {
-        return veterinaria.getVeterinarios();
+        return veterinaria.getListVeterinarios();
     }
 
-    public boolean eliminarCliente(String cedula) {
-        return empresa.eliminarCliente(cedula);
+    public boolean eliminarVeterinario(String identificacion) {
+        return veterinaria.eliminarVeterinario(identificacion);
     }
 
-    public boolean actualizarCliente(String cedula, Cliente cliente) {
-        return empresa.actualizarCliente(cedula, cliente);
+    public boolean actualizarVeterinario(String identificacion, Veterinario veterinario) {
+        return veterinaria.actualizarCliente(identificacion, veterinario);
     }
 }
 

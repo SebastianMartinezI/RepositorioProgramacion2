@@ -4,12 +4,12 @@ import java.util.List;
 
 public class Persona {
     private String nombre;
-    private  int identificacion;
-    private int telefono;
+    private  String identificacion;
+    private String telefono;
     private String direccion;
 
 
-    public Persona(String nombre, int identificacion, int telefono, String direccion) {
+    public Persona(String nombre, String identificacion, String telefono, String direccion) {
         this.nombre = nombre;
         this.identificacion = identificacion;
         this.telefono = telefono;
@@ -25,19 +25,19 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public int getIdentificacion() {
+    public String getIdentificacion() {
         return identificacion;
     }
 
-    public void setIdentificacion(int identificacion) {
+    public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

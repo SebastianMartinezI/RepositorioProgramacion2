@@ -4,9 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.veterinaria.App;
-import co.edu.uniquindio.poo.veterinaria.controller.MascotaController;
 import co.edu.uniquindio.poo.veterinaria.controller.VeterinarioController;
-import co.edu.uniquindio.poo.veterinaria.model.Mascota;
 import co.edu.uniquindio.poo.veterinaria.model.Veterinario;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;

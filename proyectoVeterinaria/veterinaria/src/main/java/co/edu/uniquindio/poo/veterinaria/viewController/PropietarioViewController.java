@@ -4,8 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.poo.veterinaria.App;
-import co.edu.uniquindio.poo.veterinaria.controller.MascotaController;
-import co.edu.uniquindio.poo.veterinaria.model.Mascota;
+import co.edu.uniquindio.poo.veterinaria.controller.PropietarioController;
+import co.edu.uniquindio.poo.veterinaria.model.Propietario;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,11 +15,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class MascotaViewController {
+public class PropietarioViewController {
 
-    ClienteController clienteController;
-    ObservableList<Cliente> listClientes = FXCollections.observableArrayList();
-    Cliente selectedCliente;
+    PropietarioController propietarioController;
+    ObservableList<Propietario> listPropietarios = FXCollections.observableArrayList();
+    Propietario selectedPropietario;
 
     @FXML
     private ResourceBundle resources;
@@ -34,7 +34,7 @@ public class MascotaViewController {
     private Button btnLimpiar;
 
     @FXML
-    private TableView<Cliente> tblListCliente;
+    private TableView<Propietario> tblListPropietario;
 
     @FXML
     private Button btnEliminar;
@@ -43,32 +43,39 @@ public class MascotaViewController {
     private Button btnActualizarCliente;
 
     @FXML
-    private TableColumn<Cliente, String> tbcNombre;
+    private TableColumn<Propietario, String> tbcNombre;
 
     @FXML
-    private TextField txtApellido;
+    private TextField txtIdentificacion;
 
     @FXML
-    private TableColumn<Cliente, String> tbcApellido;
+    private TableColumn<Propietario, String> tbcIdentificacion;
 
     @FXML
     private Button btbAgregarCliente;
 
     @FXML
-    private TableColumn<Cliente, String> tbcCedula;
+    private TableColumn<Propietario, String> tbcTelefono;
 
     @FXML
-    private TextField txtCedula;
+    private TextField txtTelefono;
+
+
+    @FXML
+    private TableColumn<Propietario, String> tbcDireccion;
+
+    @FXML
+    private TextField txtDireccion;
     private App app;
 
     @FXML
-    void onAgregarCliente() {
-        agregarCliente();
+    void onAgregarPropietario() {
+        agregarPropietario();
     }
 
     @FXML
-    void onActualizarCliente() {
-        actualizarCliente();
+    void onActualizarPropietario() {
+        actualizarPropietario();
     }
 
     @FXML
@@ -78,13 +85,13 @@ public class MascotaViewController {
 
     @FXML
     void onEliminar() {
-        eliminarCliente();
+        eliminarPropietario();
     }
 
     @FXML
     void initialize() {
         this.app=app;
-        clienteController = new ClienteController(app.empresa);
+        propietarioController = new PropietarioController(app.veterinaria);
         initView();
     }
 
@@ -93,90 +100,95 @@ public class MascotaViewController {
         initDataBinding();
 
         // Obtiene la lista
-        obtenerClientes();
+        obtenerPropietarios();
 
         // Limpiar la tabla
-        tblListCliente.getItems().clear();
+        tblListPropietario.getItems().clear();
 
         // Agregar los elementos a la tabla
-        tblListCliente.setItems(listClientes);
+        tblListPropietario.setItems(listPropietarios);
 
         // Seleccionar elemento de la tabla
         listenerSelection();
     }
 
     private void initDataBinding() {
-        tbcCedula.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCedula()));
         tbcNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        tbcApellido.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getApellido()));
+        tbcIdentificacion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getIdentificacion()));
+        tbcTelefono.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTelefono()));
+        tbcDireccion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDireccion()));
+
         // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
     }
 
-    private void obtenerClientes() {
-        listClientes.addAll(clienteController.obtenerListaClientes());
+    private void obtenerPropietarios() {
+        listPropietarios.addAll(propietarioController.obtenerListaPropietarios());
     }
 
     private void listenerSelection() {
-        tblListCliente.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            selectedCliente = newSelection;
-            mostrarInformacionCliente(selectedCliente);
+        tblListPropietario.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            selectedPropietario = newSelection;
+            mostrarInformacionPropietario(selectedPropietario);
         });
     }
 
-    private void mostrarInformacionCliente(Cliente cliente) {
-        if (cliente != null) {
-            txtCedula.setText(cliente.getCedula());
-            txtNombre.setText(cliente.getNombre());
-            txtApellido.setText(cliente.getApellido());
+    private void mostrarInformacionPropietario(Propietario propietario) {
+        if (propietario != null) {
+            txtNombre.setText(propietario.getNombre());
+            txtIdentificacion.setText(propietario.getIdentificacion());
+            txtTelefono.setText(propietario.getTelefono());
+            txtDireccion.setText(propietario.getDireccion());
         }
     }
 
-    private void agregarCliente() {
-        Cliente cliente = buildCliente();
-        if (clienteController.crearCliente(cliente)) {
-            listClientes.add(cliente);
-            limpiarCamposCliente();
+    private void agregarPropietario() {
+        Propietario propietario = buildPropietario();
+        if (propietarioController.crearPropietario(propietario)) {
+            listPropietarios.add(propietario);
+            limpiarCamposPropietario();
         }
     }
 
-    private Cliente buildCliente() {
-        Cliente cliente = new Cliente(txtCedula.getText(), txtNombre.getText(), txtApellido.getText());
-        return cliente;
+    private Propietario buildPropietario() {
+        Propietario propietario = new Propietario(txtNombre.getText(), txtIdentificacion.getText(), txtTelefono.getText(), txtDireccion.getText());
+        return propietario;
     }
 
-    private void eliminarCliente() {
-        if (clienteController.eliminarCliente(txtCedula.getText())) {
-            listClientes.remove(selectedCliente);
-            limpiarCamposCliente();
+    private void eliminarPropietario() {
+        if (propietarioController.eliminarPropietario(txtIdentificacion.getText())) {
+            listPropietarios.remove(selectedPropietario);
+            limpiarCamposPropietario();
             limpiarSeleccion();
         }
     }
 
-    private void actualizarCliente() {
+    private void actualizarPropietario() {
 
-        if (selectedCliente != null &&
-                clienteController.actualizarCliente(selectedCliente.getCedula(), buildCliente())) {
+        if (selectedPropietario != null &&
+                propietarioController.actualizarPropietario(selectedPropietario.getIdentificacion(), buildPropietario())) {
 
-            int index = listClientes.indexOf(selectedCliente);
+            int index = listPropietarios.indexOf(selectedPropietario);
             if (index >= 0) {
-                listClientes.set(index, buildCliente());
+                listPropietarios.set(index, buildPropietario());
             }
 
-            tblListCliente.refresh();
+            tblListPropietarios.refresh();
             limpiarSeleccion();
-            limpiarCamposCliente();
+            limpiarCamposPropietario();
         }
     }
 
     private void limpiarSeleccion() {
-        tblListCliente.getSelectionModel().clearSelection();
+        tblListPropietario.getSelectionModel().clearSelection();
         limpiarCamposCliente();
     }
 
     private void limpiarCamposCliente() {
-        txtCedula.clear();
         txtNombre.clear();
-        txtApellido.clear();
+        txtIdentificacion.clear();
+        txtTelefono.clear();
+        txtDireccion.clear();
+
     }
 
     public void setApp(App app) {

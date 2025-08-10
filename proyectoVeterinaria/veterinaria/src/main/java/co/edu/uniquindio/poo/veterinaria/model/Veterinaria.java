@@ -71,10 +71,10 @@ public class Veterinaria {
         }
         return centinela;
     }
-    public boolean verificarVeterinario(int identificacion) {
+    public boolean verificarVeterinario(String identificacion) {
         boolean centinela = false;
         for (Veterinario veterinario : listVeterinarios) {
-            if (veterinario.getIdentificacion() == identificacion) {
+            if (veterinario.getIdentificacion().equals(identificacion)) {
                 centinela = true;
             }
         }
@@ -143,9 +143,9 @@ public class Veterinaria {
 
 
     /** Funcionalidad propia: buscar propietario por ID */
-    public Propietario buscarPropietarioPorID(int identificicacion) {
+    public Propietario buscarPropietarioPorID(String identificicacion) {
         for (Propietario propietario : listPropietarios) {
-            if (propietario.getIdentificacion() == identificicacion) {
+            if (propietario.getIdentificacion().equals(identificicacion)) {
                 return propietario;
             }
         }

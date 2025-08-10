@@ -1,15 +1,15 @@
 package co.edu.uniquindio.poo.veterinaria;
 
+import co.edu.uniquindio.poo.veterinaria.model.*;
+import co.edu.uniquindio.poo.veterinaria.viewController.MascotaViewController;
+import co.edu.uniquindio.poo.veterinaria.viewController.VeterinarioViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
-import co.edu.uniquindio.poo.veterinaria.model.Propietario;
-import co.edu.uniquindio.poo.veterinaria.model.Veterinaria;
-import co.edu.uniquindio.poo.veterinaria.model.Mascota;
-import co.edu.uniquindio.poo.veterinaria.model.Veterinario;
+
 import co.edu.uniquindio.poo.veterinaria.viewController.PropietarioViewController;
 import co.edu.uniquindio.poo.veterinaria.viewController.PrimaryController;
 
@@ -24,7 +24,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Gestion de Clientes");
+        this.primaryStage.setTitle("Gestion de Propietarios");
         openViewPrincipal();
     }
 
@@ -50,10 +50,10 @@ public class App extends Application {
         launch();
     }
 
-    public void openCrudCliente() {
+    public void openCrudPropietario() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(App.class.getResource("crudCliente.fxml"));
+            loader.setLocation(App.class.getResource("crudPropietario.fxml"));
             AnchorPane rootLayout = (AnchorPane) loader.load();
             PropietarioViewController propietarioViewController = loader.getController();
             propietarioViewController.setApp(this);
@@ -67,10 +67,49 @@ public class App extends Application {
         }
     }
 
+    public void openCrudMascota() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("crudMascota.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            MascotaViewController mascotaViewController = loader.getController();
+            mascotaViewController.setApp(this);
+
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    public void openCrudVeterinario() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("crudVeterinario.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            VeterinarioViewController veterinarioViewController = loader.getController();
+            veterinarioViewController.setApp(this);
+
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
     //servicios
     public void inicializarData(){
-        Propietario propietario = new Propietario("Juan", 1111, 30202222, "7 de Agosto");
+        Propietario propietario = new Propietario("Juan", "1111", "30202222", "7 de Agosto");
         veterinaria.agregarPropietario(propietario);
+
+        Mascota mascota = new Mascota("Juan", Especie.PERRO, "pincher", "7","1122", "Juan");
+        veterinaria.agregarMascota(mascota);
+
+        Veterinario veterinario = new Veterinario("Juan", "1111", "30202222", "7 de Agosto", "1234");
+        veterinaria.agregarVeterinario(veterinario);
     }
 }
 

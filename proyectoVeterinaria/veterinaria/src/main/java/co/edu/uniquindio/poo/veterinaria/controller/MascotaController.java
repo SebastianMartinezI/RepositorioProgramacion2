@@ -6,26 +6,26 @@ import java.util.Collection;
 
 public class MascotaController {
 
-    Empresa empresa;
+    Veterinaria veterinaria;
 
-    public ClienteController(Empresa empresa) {
-        this.empresa = empresa;
+    public MascotaController(Veterinaria veterinaria) {
+        this.veterinaria = veterinaria;
     }
 
-    public boolean crearCliente(Cliente cliente) {
-        return empresa.agregarCliente(cliente);
+    public boolean crearMascota(Mascota mascota) {
+        return veterinaria.agregarMascota(mascota);
     }
 
-    public Collection<Cliente> obtenerListaClientes() {
-        return empresa.getClientes();
+    public Collection<Mascota> obtenerListaMascotas() {
+        return veterinaria.getListMascotas();
     }
 
-    public boolean eliminarCliente(String cedula) {
-        return empresa.eliminarCliente(cedula);
+    public boolean eliminarMascota(String identificacionVeterinaria) {
+        return veterinaria.eliminarMascota(identificacionVeterinaria);
     }
 
-    public boolean actualizarCliente(String cedula, Cliente cliente) {
-        return empresa.actualizarCliente(cedula, cliente);
+    public boolean actualizarMascota(String identificacionVeterinaria, Mascota mascota) {
+        return veterinaria.actualizarMascota(identificacionVeterinaria, mascota);
     }
 }
 

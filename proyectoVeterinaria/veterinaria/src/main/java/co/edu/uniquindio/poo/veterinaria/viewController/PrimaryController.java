@@ -15,11 +15,25 @@ public class PrimaryController {
     private URL location;
 
     @FXML
-    private Button primaryButton;
+    private Button propietarioButton;
 
     @FXML
-    void onOpenCrudCliente() {
-        app.openCrudCliente();
+    void onOpenCrudMascota() {
+        app.openCrudMascota();
+    }
+    @FXML
+    private Button mascotaButton;
+
+    @FXML
+    void onOpenCrudVeterinario() {
+        app.openCrudVeterinario();
+    }
+    @FXML
+    private Button veterinarioButton;
+
+    @FXML
+    void onOpenCrudPropietario() {
+        app.openCrudPropietario();
     }
 
     public void setApp(App app) {

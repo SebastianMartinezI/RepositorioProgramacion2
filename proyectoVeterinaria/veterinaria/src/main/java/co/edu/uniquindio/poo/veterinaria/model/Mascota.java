@@ -4,11 +4,11 @@ public class Mascota {
     private String nombre;
     private Especie especie;
     private String raza;
-    private int edad;
-    private int identificacionVeterinaria;
+    private String edad;
+    private String identificacionVeterinaria;
     private Propietario propietario;
 
-    public Mascota(String nombre, Especie especie, String raza, int edad, int identificacionVeterinaria, Propietario propietario) {
+    public Mascota(String nombre, Especie especie, String raza, String edad, String identificacionVeterinaria, Propietario propietario) {
 
         this.nombre = nombre;
         this.especie = especie;
@@ -30,6 +30,38 @@ public class Mascota {
 
     public void setPropietario(Propietario propietario) {
         this.propietario = propietario;
+    }
+
+    public Especie getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(Especie especie) {
+        this.especie = especie;
+    }
+
+    public String getRaza() {
+        return raza;
+    }
+
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }
+
+    public String getEdad() {
+        return edad;
+    }
+
+    public void setEdad(String edad) {
+        this.edad = edad;
+    }
+
+    public String getIdentificacionVeterinaria() {
+        return identificacionVeterinaria;
+    }
+
+    public void setIdentificacionVeterinaria(String identificacionVeterinaria) {
+        this.identificacionVeterinaria = identificacionVeterinaria;
     }
 
     @Override
