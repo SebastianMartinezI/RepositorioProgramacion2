@@ -69,6 +69,11 @@ public class VeterinarioViewController {
     private TableColumn<Veterinario, String> tbcLicenciaProfesional;
     @FXML
     private TextField txtLicenciaProfesional;
+
+    @FXML
+    private TableColumn<Veterinario, String> tbcEspecialidad;
+    @FXML
+    private TextField txtEspecialidad;
     private App app;
 
     @FXML
@@ -116,6 +121,7 @@ public class VeterinarioViewController {
         tbcTelefono.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTelefono()));
         tbcDireccion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDireccion()));
         tbcLicenciaProfesional.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getLicenciaProfesional()));
+        tbcEspecialidad.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEspecialidad()));
 
 
         // Usamos SimpleObjectProperty para manejar Double y Integer correctamente
@@ -132,13 +138,14 @@ public class VeterinarioViewController {
         });
     }
 
-    private void mostrarInformacionCliente(Veterinario veterinario) {
+    private void mostrarInformacionVeterinario(Veterinario veterinario) {
         if (veterinario != null) {
             txtIdentificacion.setText(veterinario.getIdentificacion());
             txtNombre.setText(veterinario.getNombre());
             txtTelefono.setText(veterinario.getTelefono());
             txtDireccion.setText(veterinario.getDireccion());
             txtLicenciaProfesional.setText(veterinario.getLicenciaProfesional());
+            txtEspecialidad.setText(veterinario.getEspecialidad());
         }
     }
 
@@ -151,7 +158,7 @@ public class VeterinarioViewController {
     }
 
     private Veterinario buildVeterinario() {
-        Veterinario veterinario = new Veterinario(txtNombre.getText(), txtIdentificacion.getText(), txtTelefono.getText(), txtDireccion.getText(), txtLicenciaProfesional.getText());
+        Veterinario veterinario = new Veterinario(txtNombre.getText(), txtIdentificacion.getText(), txtTelefono.getText(), txtDireccion.getText(), txtLicenciaProfesional.getText(), txtEspecialidad.getText());
         return veterinario;
     }
 
@@ -167,21 +174,22 @@ public class VeterinarioViewController {
 
             tblListVeterinarios.refresh();
             limpiarSeleccion();
-            limpiarCamposCliente();
+            limpiarCamposVeterinarios();
         }
     }
 
     private void limpiarSeleccion() {
         tblListVeterinarios.getSelectionModel().clearSelection();
-        limpiarCamposCliente();
+        limpiarCamposVeterinarios();
     }
 
-    private void limpiarCamposCliente() {
+    private void limpiarCamposVeterinarios() {
         txtNombre.clear();
         txtIdentificacion.clear();
         txtTelefono.clear();
         txtDireccion.clear();
         txtLicenciaProfesional.clear();
+        txtEspecialidad.clear();
     }
 
     public void setApp(App app) {

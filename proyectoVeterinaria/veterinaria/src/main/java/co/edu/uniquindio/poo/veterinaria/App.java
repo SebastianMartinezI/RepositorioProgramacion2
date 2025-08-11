@@ -105,10 +105,10 @@ public class App extends Application {
         Propietario propietario = new Propietario("Juan", "1111", "30202222", "7 de Agosto");
         veterinaria.agregarPropietario(propietario);
 
-        Mascota mascota = new Mascota("Juan", Especie.PERRO, "pincher", "7","1122", "Juan");
+        Mascota mascota = new Mascota("Juan", "Félino", "pincher", "7","1122", "Juan" );
         veterinaria.agregarMascota(mascota);
 
-        Veterinario veterinario = new Veterinario("Juan", "1111", "30202222", "7 de Agosto", "1234");
+        Veterinario veterinario = new Veterinario("Juan", "1111", "30202222", "7 de Agosto", "1234", "Roedores");
         veterinaria.agregarVeterinario(veterinario);
     }
 }

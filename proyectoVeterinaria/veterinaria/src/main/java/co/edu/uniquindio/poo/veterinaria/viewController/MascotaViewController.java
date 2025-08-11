@@ -143,11 +143,11 @@ public class MascotaViewController {
     private void listenerSelection() {
         tblListMascota.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             selectedMascota = newSelection;
-            mostrarInformacionCliente(selectedMascota);
+            mostrarInformacionMascota(selectedMascota);
         });
     }
 
-    private void mostrarInformacionCliente(Mascota mascota) {
+    private void mostrarInformacionMascota(Mascota mascota) {
         if (mascota != null) {
             txtNombre.setText(mascota.getNombre());
             txtEspecie.setText(mascota.getEspecie());
@@ -182,7 +182,7 @@ public class MascotaViewController {
     private void actualizarMascota() {
 
         if (selectedMascota != null &&
-                mascotaController.actualizarCliente(selectedMascota.getIdentificacionVeterinaria(), buildMascota())) {
+                mascotaController.actualizarMascota(selectedMascota.getIdentificacionVeterinaria(), buildMascota())) {
 
             int index = listMascotas.indexOf(selectedMascota);
             if (index >= 0) {
@@ -191,16 +191,16 @@ public class MascotaViewController {
 
             tblListMascota.refresh();
             limpiarSeleccion();
-            limpiarCamposCliente();
+            limpiarCamposMascota();
         }
     }
 
     private void limpiarSeleccion() {
         tblListMascota.getSelectionModel().clearSelection();
-        limpiarCamposCliente();
+        limpiarCamposMascota();
     }
 
-    private void limpiarCamposCliente() {
+    private void limpiarCamposMascota() {
         txtNombre.clear();
         txtEspecie.clear();
         txtRaza.clear();

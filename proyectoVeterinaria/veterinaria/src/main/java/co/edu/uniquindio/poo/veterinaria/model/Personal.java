@@ -4,7 +4,7 @@ public class Personal extends Persona {
 
     private String profesion;
 
-    public Personal(String nombre, int identificacion, int telefono, String direccion,String profesion) {
+    public Personal(String nombre, String identificacion, String telefono, String direccion,String profesion) {
         super(nombre, identificacion, telefono, direccion);
         this.profesion = profesion;
     }

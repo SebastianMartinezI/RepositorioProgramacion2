@@ -2,13 +2,13 @@ package co.edu.uniquindio.poo.veterinaria.model;
 
 public class Mascota {
     private String nombre;
-    private Especie especie;
+    private String especie;
     private String raza;
     private String edad;
     private String identificacionVeterinaria;
-    private Propietario propietario;
+    private String propietario;
 
-    public Mascota(String nombre, Especie especie, String raza, String edad, String identificacionVeterinaria, Propietario propietario) {
+    public Mascota(String nombre, String especie, String raza, String edad, String identificacionVeterinaria, String propietario) {
 
         this.nombre = nombre;
         this.especie = especie;
@@ -24,19 +24,19 @@ public class Mascota {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public Propietario getPropietario() {
+    public String getPropietario() {
         return propietario;
     }
 
-    public void setPropietario(Propietario propietario) {
+    public void setPropietario(String propietario) {
         this.propietario = propietario;
     }
 
-    public Especie getEspecie() {
+    public String getEspecie() {
         return especie;
     }
 
-    public void setEspecie(Especie especie) {
+    public void setEspecie(String especie) {
         this.especie = especie;
     }
 

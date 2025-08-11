@@ -13,7 +13,7 @@ public class PropietarioController {
     }
 
     public boolean crearPropietario(Propietario propietario) {
-        return propietario.agregarPropietario(propietario);
+        return veterinaria.agregarPropietario(propietario);
     }
 
     public Collection<Propietario> obtenerListaPropietarios() {

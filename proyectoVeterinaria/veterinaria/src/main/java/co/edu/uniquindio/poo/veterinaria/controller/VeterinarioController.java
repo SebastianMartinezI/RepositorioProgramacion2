@@ -25,7 +25,7 @@ public class VeterinarioController {
     }
 
     public boolean actualizarVeterinario(String identificacion, Veterinario veterinario) {
-        return veterinaria.actualizarCliente(identificacion, veterinario);
+        return veterinaria.actualizarVeterinario(identificacion, veterinario);
     }
 }
 

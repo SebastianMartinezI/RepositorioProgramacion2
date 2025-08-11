@@ -172,7 +172,7 @@ public class PropietarioViewController {
                 listPropietarios.set(index, buildPropietario());
             }
 
-            tblListPropietarios.refresh();
+            tblListPropietario.refresh();
             limpiarSeleccion();
             limpiarCamposPropietario();
         }
@@ -180,10 +180,10 @@ public class PropietarioViewController {
 
     private void limpiarSeleccion() {
         tblListPropietario.getSelectionModel().clearSelection();
-        limpiarCamposCliente();
+        limpiarCamposPropietario();
     }
 
-    private void limpiarCamposCliente() {
+    private void limpiarCamposPropietario() {
         txtNombre.clear();
         txtIdentificacion.clear();
         txtTelefono.clear();
