@@ -104,7 +104,7 @@ public class VeterinarioViewController {
     }
 
     private void initView() {
-        // Traer los datos del cliente a la tabla
+        // Traer los datos del veterinario a la tabla
         initDataBinding();
 
         // Obtiene la lista
