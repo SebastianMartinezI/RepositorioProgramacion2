@@ -90,7 +90,12 @@ public class VeterinarioViewController {
     void onLimpiar() {
         limpiarSeleccion();
     }
-    
+    @FXML
+    void onEliminar() {
+        eliminarVeterinario();
+    }
+
+
     @FXML
     void initialize() {
         this.app=app;
@@ -177,6 +182,14 @@ public class VeterinarioViewController {
             limpiarCamposVeterinarios();
         }
     }
+    private void eliminarVeterinario() {
+        if (veterinarioController.eliminarVeterinario(txtIdentificacion.getText())) {
+            listVeterinarios.remove(selectedVeterinario);
+            limpiarCamposVeterinarios();
+            limpiarSeleccion();
+        }
+    }
+
 
     private void limpiarSeleccion() {
         tblListVeterinarios.getSelectionModel().clearSelection();

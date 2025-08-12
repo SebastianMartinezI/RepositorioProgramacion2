@@ -36,25 +36,30 @@
                                         <Font size="18.0" />
                                     </font>
                                 </Label>
-                                <TextField fx:id="txtCedula" layoutX="126.0" layoutY="59.0" prefHeight="25.0" prefWidth="194.0" />
-                                <TextField fx:id="txtNombre" layoutX="126.0" layoutY="93.0" prefHeight="25.0" prefWidth="194.0" />
-                                <TextField fx:id="txtApellido" layoutX="126.0" layoutY="125.0" prefHeight="25.0" prefWidth="194.0" />
-                        <Label layoutX="31.0" layoutY="153.0" text="Dirección:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="11.0" layoutY="183.0" prefHeight="27.0" prefWidth="106.0" text="Lic. Profesional:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="13.0" layoutY="210.0" text="Especialidad:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="126.0" layoutY="154.0" prefHeight="25.0" prefWidth="194.0" />
+                                <Label layoutX="31.0" layoutY="153.0" text="Dirección:">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="11.0" layoutY="183.0" prefHeight="27.0" prefWidth="106.0" text="Lic. Profesional:">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="13.0" layoutY="210.0" text="Especialidad:">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="txtNombre" layoutX="126.0" layoutY="59.0" prefHeight="25.0" prefWidth="194.0" />
+                                <TextField fx:id="txtIdentificacion" layoutX="126.0" layoutY="93.0" prefHeight="25.0" prefWidth="194.0" />
+                                <TextField fx:id="txtTelefono" layoutX="126.0" layoutY="125.0" prefHeight="25.0" prefWidth="194.0" />
+                                <TextField fx:id="txtDireccion" layoutX="126.0" layoutY="125.0" prefHeight="25.0" prefWidth="194.0" />
+                                <TextField fx:id="txtLicenciaProfesional" layoutX="126.0" layoutY="125.0" prefHeight="25.0" prefWidth="194.0" />
+                                <TextField fx:id="txtEspecialidad" layoutX="126.0" layoutY="125.0" prefHeight="25.0" prefWidth="194.0" />
+
+
+                                <TextField layoutX="126.0" layoutY="154.0" prefHeight="25.0" prefWidth="194.0" />
                         <TextField layoutX="126.0" layoutY="184.0" prefHeight="25.0" prefWidth="194.0" />
                         <TextField layoutX="126.0" layoutY="211.0" prefHeight="25.0" prefWidth="194.0" />
                                 <Button fx:id="btnActualizarVeterinario" layoutX="204.0" layoutY="243.0" mnemonicParsing="false" onAction="#onActualizarVeterinario" text="Actualizar veterinario" />
@@ -65,11 +70,14 @@
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="236.0" prefWidth="427.0">
                     <children>
-                        <TableView fx:id="tblListCliente" layoutX="1.0" layoutY="5.0" prefHeight="208.0" prefWidth="418.0">
+                        <TableView fx:id="tblListVeterinarios" layoutX="1.0" layoutY="5.0" prefHeight="208.0" prefWidth="418.0">
                             <columns>
-                                <TableColumn fx:id="tbcCedula" prefWidth="75.0" text="Cedula" />
                                 <TableColumn fx:id="tbcNombre" prefWidth="75.0" text="Nombre" />
-                                <TableColumn fx:id="tbcApellido" prefWidth="75.0" text="Apellido" />
+                                <TableColumn fx:id="tbcIdentificacion" prefWidth="75.0" text="Identificacion" />
+                                <TableColumn fx:id="tbcTelefono" prefWidth="75.0" text="Telefono" />
+                                <TableColumn fx:id="tbcDireccion" prefWidth="75.0" text="Direccion" />
+                                <TableColumn fx:id="tbcLicenciaProfesional" prefWidth="75.0" text="Lic.Profesional" />
+                                <TableColumn fx:id="tbcEspecialidad" prefWidth="75.0" text="Especi..." />
                             </columns>
                         </TableView>
                         <Button fx:id="btnLimpiar" layoutX="93.0" layoutY="223.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="25.0" prefWidth="106.0" text="Limpiar" />

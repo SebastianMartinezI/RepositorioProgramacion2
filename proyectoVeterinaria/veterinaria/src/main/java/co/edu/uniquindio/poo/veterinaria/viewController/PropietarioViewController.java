@@ -40,7 +40,7 @@ public class PropietarioViewController {
     private Button btnEliminar;
 
     @FXML
-    private Button btnActualizarCliente;
+    private Button btnActualizarPropietario;
 
     @FXML
     private TableColumn<Propietario, String> tbcNombre;
@@ -52,7 +52,7 @@ public class PropietarioViewController {
     private TableColumn<Propietario, String> tbcIdentificacion;
 
     @FXML
-    private Button btbAgregarCliente;
+    private Button btbAgregarPropietario;
 
     @FXML
     private TableColumn<Propietario, String> tbcTelefono;

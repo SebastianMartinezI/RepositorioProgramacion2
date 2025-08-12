@@ -36,40 +36,43 @@
                                         <Font size="18.0" />
                                     </font>
                                 </Label>
-                                <TextField fx:id="txtCedula" layoutX="126.0" layoutY="46.0" prefHeight="25.0" prefWidth="194.0" />
-                                <TextField fx:id="txtNombre" layoutX="126.0" layoutY="81.0" prefHeight="25.0" prefWidth="194.0" />
-                                <TextField fx:id="txtApellido" layoutX="126.0" layoutY="113.0" prefHeight="25.0" prefWidth="194.0" />
-                        <Label layoutX="41.0" layoutY="142.0" text="Edad:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="8.0" layoutY="169.0" prefHeight="27.0" prefWidth="115.0" text="Identificación:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="18.0" layoutY="196.0" prefHeight="27.0" prefWidth="107.0" text="Propietario:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtApellido1" layoutX="126.0" layoutY="170.0" prefHeight="25.0" prefWidth="194.0" />
-                        <TextField fx:id="txtApellido2" layoutX="126.0" layoutY="143.0" prefHeight="25.0" prefWidth="194.0" />
-                        <TextField fx:id="txtApellido11" layoutX="126.0" layoutY="197.0" prefHeight="25.0" prefWidth="194.0" />
+                                <Label layoutX="41.0" layoutY="142.0" text="Edad:">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="8.0" layoutY="169.0" prefHeight="27.0" prefWidth="115.0" text="Identificación:">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="18.0" layoutY="196.0" prefHeight="27.0" prefWidth="107.0" text="Propietario:">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="txtNombre" layoutX="126.0" layoutY="46.0" prefHeight="25.0" prefWidth="194.0" />
+                                <TextField fx:id="txtEspecie" layoutX="126.0" layoutY="81.0" prefHeight="25.0" prefWidth="194.0" />
+                                <TextField fx:id="txtRaza" layoutX="126.0" layoutY="113.0" prefHeight="25.0" prefWidth="194.0" />
+                                <TextField fx:id="txtEdad" layoutX="126.0" layoutY="170.0" prefHeight="25.0" prefWidth="194.0" />
+                                <TextField fx:id="txtIdentificacionVeterinaria" layoutX="126.0" layoutY="143.0" prefHeight="25.0" prefWidth="194.0" />
+                                <TextField fx:id="txtPropietario" layoutX="126.0" layoutY="197.0" prefHeight="25.0" prefWidth="194.0" />
                             </children>
                         </Pane>
-                          <Button fx:id="btnActualizarCliente" layoutX="253.0" layoutY="258.0" mnemonicParsing="false" onAction="#onActualizarCliente" text="Actualizar mascota" />
-                          <Button fx:id="btbAgregarCliente" layoutX="42.0" layoutY="260.0" mnemonicParsing="false" onAction="#onAgregarCliente" text="Agregar mascota" />
+                          <Button fx:id="btnActualizarMascota" layoutX="253.0" layoutY="258.0" mnemonicParsing="false" onAction="#onActualizarMascota" text="Actualizar mascota" />
+                          <Button fx:id="btbAgregarMascota" layoutX="42.0" layoutY="260.0" mnemonicParsing="false" onAction="#onAgregarMascota" text="Agregar mascota" />
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="271.0" prefWidth="645.0">
                     <children>
                         <TableView fx:id="tblListCliente" layoutX="7.0" layoutY="7.0" prefHeight="206.0" prefWidth="412.0">
                             <columns>
-                                <TableColumn fx:id="tbcCedula" prefWidth="75.0" text="Cedula" />
                                 <TableColumn fx:id="tbcNombre" prefWidth="75.0" text="Nombre" />
-                                <TableColumn fx:id="tbcApellido" prefWidth="75.0" text="Apellido" />
+                                <TableColumn fx:id="tbcEspecie" prefWidth="75.0" text="Especie" />
+                                <TableColumn fx:id="tbcRaza" prefWidth="75.0" text="Raza" />
+                                <TableColumn fx:id="tbcEdad" prefWidth="75.0" text="Edad" />
+                                <TableColumn fx:id="tbcIdentificacionVeterinaria" prefWidth="75.0" text="Id.Veter.." />
+                                <TableColumn fx:id="tbcPropietario" prefWidth="75.0" text="Propi.." />
                             </columns>
                         </TableView>
                         <Button fx:id="btnLimpiar" layoutX="93.0" layoutY="223.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="25.0" prefWidth="106.0" text="Limpiar" />

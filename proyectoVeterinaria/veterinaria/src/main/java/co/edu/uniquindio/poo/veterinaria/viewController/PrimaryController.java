@@ -14,22 +14,24 @@ public class PrimaryController {
     @FXML
     private URL location;
 
+
     @FXML
-    private Button propietarioButton;
+    private Button mascotaButton;
 
     @FXML
     void onOpenCrudMascota() {
         app.openCrudMascota();
     }
-    @FXML
-    private Button mascotaButton;
 
+    @FXML
+    private Button veterinarioButton;
     @FXML
     void onOpenCrudVeterinario() {
         app.openCrudVeterinario();
     }
+
     @FXML
-    private Button veterinarioButton;
+    private Button propietarioButton;
 
     @FXML
     void onOpenCrudPropietario() {
