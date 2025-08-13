@@ -117,8 +117,23 @@ public class Veterinaria {
 
 
 
-    public void agregarConsulta(Consulta consulta) {
-        listConsultas.add(consulta);
+    public boolean agregarConsulta(Consulta consulta) {
+        boolean centinela = false;
+        if (!verificarConsulta(consulta.getFecha())) {
+            listConsultas.add(consulta);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+    public boolean verificarConsulta(String fecha) {
+        boolean centinela = false;
+        for (Consulta consulta : listConsultas) {
+            if (consulta.getFecha().equals(fecha)) {
+                centinela = true;
+            }
+        }
+        return centinela;
     }
 
     /** Ver historial de una mascota */

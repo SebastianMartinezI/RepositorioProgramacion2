@@ -32,6 +32,46 @@ public class Consulta {
         this.mascota = mascota;
     }
 
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public Tratamiento getTratamiento() {
+        return tratamiento;
+    }
+
+    public void setTratamiento(Tratamiento tratamiento) {
+        this.tratamiento = tratamiento;
+    }
+
+    public String getDiagnostico() {
+        return diagnostico;
+    }
+
+    public void setDiagnostico(String diagnostico) {
+        this.diagnostico = diagnostico;
+    }
+
+    public String getMotivoConsulta() {
+        return motivoConsulta;
+    }
+
+    public void setMotivoConsulta(String motivoConsulta) {
+        this.motivoConsulta = motivoConsulta;
+    }
+
+    public Veterinario getVeterinario() {
+        return veterinario;
+    }
+
+    public void setVeterinario(Veterinario veterinario) {
+        this.veterinario = veterinario;
+    }
+
     @Override
     public String toString() {
         return "Consulta{" +

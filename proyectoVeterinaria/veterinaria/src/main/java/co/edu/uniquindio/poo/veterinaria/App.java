@@ -1,17 +1,13 @@
 package co.edu.uniquindio.poo.veterinaria;
 
 import co.edu.uniquindio.poo.veterinaria.model.*;
-import co.edu.uniquindio.poo.veterinaria.viewController.MascotaViewController;
-import co.edu.uniquindio.poo.veterinaria.viewController.VeterinarioViewController;
+import co.edu.uniquindio.poo.veterinaria.viewController.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
-
-import co.edu.uniquindio.poo.veterinaria.viewController.PropietarioViewController;
-import co.edu.uniquindio.poo.veterinaria.viewController.PrimaryController;
 
 /**
  * JavaFX App
@@ -99,6 +95,22 @@ public class App extends Application {
             e.printStackTrace();
         }
     }
+    public void openCrudConsulta() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("crudConsulta.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            ConsultaViewController consultaViewController = loader.getController();
+            consultaViewController.setApp(this);
+
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
     //servicios
     public void inicializarData(){
@@ -110,6 +122,9 @@ public class App extends Application {
 
         Veterinario veterinario = new Veterinario("Juan", "1111", "30202222", "7 de Agosto", "1234", "Roedores");
         veterinaria.agregarVeterinario(veterinario);
+
+        Tratamiento tratamiento = new Tratamiento("Dolor", ;
+        Consulta consulta = new Consulta("13-08-2025", "9:00", mascota, veterinario, "Dolor", "Estable",)
     }
 }
 
